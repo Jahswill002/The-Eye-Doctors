@@ -2,12 +2,12 @@ name: CI/CD Pipeline
 
 on:
   push:
-    branches: [ main, develop ]
+    branches: [ main ]
   pull_request:
-    branches: [ main, develop ]
+    branches: [ main ]
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     
     strategy:
@@ -22,13 +22,17 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     
-    - name: Install and build frontend
+    - name: Install frontend dependencies
       run: |
         cd frontend
-        npm install
+        npm install --legacy-peer-deps
+    
+    - name: Build frontend
+      run: |
+        cd frontend
         npm run build
     
     - name: Install backend dependencies
       run: |
         cd backend
-        npm install
+        npm install --legacy-peer-deps
