@@ -1,7 +1,8 @@
 // Booking / Appointment Form page
 import { useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { CheckCircle, Clock, Phone, MapPin } from 'lucide-react';
+import { CheckCircle, Clock, Phone, MapPin, AlertCircle } from 'lucide-react';
+import { submitAppointment } from '../utils/api';
 
 export default function Booking() {
   const [formData, setFormData] = useState({
@@ -17,6 +18,8 @@ export default function Booking() {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,26 +27,39 @@ export default function Booking() {
       ...prev,
       [name]: value,
     }));
+    setError(null); // Clear error when user starts typing
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    setSubmitted(true);
-    setTimeout(() => {
-      setFormData({
-        fullName: '',
-        email: '',
-        phone: '',
-        dateOfBirth: '',
-        service: 'comprehensive-exam',
-        preferredLocation: 'victoria-island',
-        preferredDate: '',
-        preferredTime: '',
-        message: '',
-      });
-      setSubmitted(false);
-    }, 3000);
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await submitAppointment(formData);
+      setSubmitted(true);
+      
+      // Reset form after 3 seconds
+      setTimeout(() => {
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          dateOfBirth: '',
+          service: 'comprehensive-exam',
+          preferredLocation: 'victoria-island',
+          preferredDate: '',
+          preferredTime: '',
+          message: '',
+        });
+        setSubmitted(false);
+      }, 3000);
+    } catch (err) {
+      setError(err.message || 'Failed to submit appointment. Please try again.');
+      console.error('Appointment submission error:', err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const { ref, isVisible } = useScrollReveal();
@@ -236,12 +252,28 @@ export default function Booking() {
                     ></textarea>
                   </div>
 
+                  {/* Error Message */}
+                  {error && (
+                    <div className="bg-red-50 border border-red-200 rounded-card p-4 flex gap-3">
+                      <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-semibold text-red-700">Error</p>
+                        <p className="text-red-600 text-sm">{error}</p>
+                      </div>
+                    </div>
+                  )}
+
                   {/* Submit Button */}
                   <button
                     type="submit"
-                    className="w-full bg-amber text-white px-8 py-4 rounded-btn font-semibold text-lg hover:bg-yellow-600 transition-all hover:shadow-lg"
+                    disabled={loading}
+                    className={`w-full px-8 py-4 rounded-btn font-semibold text-lg transition-all hover:shadow-lg ${
+                      loading
+                        ? 'bg-amber/50 text-white cursor-not-allowed'
+                        : 'bg-amber text-white hover:bg-yellow-600'
+                    }`}
                   >
-                    Confirm Appointment
+                    {loading ? 'Submitting...' : 'Confirm Appointment'}
                   </button>
                 </form>
               )}

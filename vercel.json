@@ -1,0 +1,22 @@
+{
+  "buildCommand": "echo 'Root vercel config'",
+  "cleanUrls": true,
+  "public": false,
+  "projects": {
+    "frontend": {
+      "name": "The Eye Doctors - Frontend",
+      "buildCommand": "npm run build",
+      "installCommand": "npm install",
+      "outputDirectory": "dist",
+      "framework": "vite",
+      "rootDirectory": "frontend"
+    },
+    "backend": {
+      "name": "The Eye Doctors - Backend",
+      "buildCommand": "npm run build",
+      "installCommand": "npm install",
+      "rootDirectory": "backend",
+      "serverless": true
+    }
+  }
+}

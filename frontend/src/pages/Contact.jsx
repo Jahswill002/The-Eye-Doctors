@@ -1,12 +1,17 @@
 // Contact page
+import { useState } from 'react';
 import { useScrollReveal } from '../hooks/useScrollReveal';
-import { MapPin, Phone, Mail, Clock, Facebook, Instagram, MessageCircle } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, Facebook, Instagram, MessageCircle, CheckCircle, AlertCircle } from 'lucide-react';
+import { submitContact } from '../utils/api';
 
 export default function Contact() {
   return (
     <div>
       {/* Hero Section */}
       <ContactHero />
+      
+      {/* Contact Form */}
+      <ContactForm />
       
       {/* Branches */}
       <Branches />
@@ -29,6 +34,195 @@ function ContactHero() {
         <p className="text-white/80 text-lg md:text-xl mt-4 max-w-xl">
           Reach us through any of our 5 locations across Lagos
         </p>
+      </div>
+    </section>
+  );
+}
+
+function ContactForm() {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    subject: 'general-inquiry',
+    message: '',
+  });
+
+  const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const { ref, isVisible } = useScrollReveal();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value,
+    }));
+    setError(null);
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      await submitContact(formData);
+      setSubmitted(true);
+      
+      setTimeout(() => {
+        setFormData({
+          name: '',
+          email: '',
+          phone: '',
+          subject: 'general-inquiry',
+          message: '',
+        });
+        setSubmitted(false);
+      }, 3000);
+    } catch (err) {
+      setError(err.message || 'Failed to send message. Please try again.');
+      console.error('Contact submission error:', err);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <section ref={ref} className="bg-surface-off-white py-24 md:py-32">
+      <div className="max-w-4xl mx-auto px-6 md:px-8">
+        <h2 className="font-serif text-4xl md:text-5xl text-navy text-center mb-4">
+          Send us a Message
+        </h2>
+        <p className="text-center text-body-text mb-12 max-w-2xl mx-auto">
+          Have a question? Send us a message and we'll respond within 24 hours.
+        </p>
+
+        {submitted ? (
+          <div className="bg-green-50 border border-green-200 rounded-card p-8 text-center">
+            <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
+            <h3 className="font-serif text-2xl text-navy mb-2">
+              Message Sent!
+            </h3>
+            <p className="text-body-text mb-4">
+              Thank you for reaching out. We'll get back to you soon.
+            </p>
+            <p className="text-teal font-semibold">
+              Check your email for confirmation.
+            </p>
+          </div>
+        ) : (
+          <form onSubmit={handleSubmit} className={`bg-white rounded-card p-8 border border-light-gray shadow-sm transition-all duration-700 ${
+            isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
+          }`}>
+            {/* Name & Email */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label className="block font-sans font-medium text-navy mb-2">
+                  Name *
+                </label>
+                <input
+                  type="text"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-light-gray rounded-input focus:outline-none focus:ring-2 focus:ring-teal/50"
+                  placeholder="Your name"
+                />
+              </div>
+              <div>
+                <label className="block font-sans font-medium text-navy mb-2">
+                  Email *
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="w-full px-4 py-3 border border-light-gray rounded-input focus:outline-none focus:ring-2 focus:ring-teal/50"
+                  placeholder="your@email.com"
+                />
+              </div>
+            </div>
+
+            {/* Phone & Subject */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              <div>
+                <label className="block font-sans font-medium text-navy mb-2">
+                  Phone Number
+                </label>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-light-gray rounded-input focus:outline-none focus:ring-2 focus:ring-teal/50"
+                  placeholder="+234 XXX XXXX XXXX"
+                />
+              </div>
+              <div>
+                <label className="block font-sans font-medium text-navy mb-2">
+                  Subject
+                </label>
+                <select
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleChange}
+                  className="w-full px-4 py-3 border border-light-gray rounded-input focus:outline-none focus:ring-2 focus:ring-teal/50"
+                >
+                  <option value="general-inquiry">General Inquiry</option>
+                  <option value="appointment">Appointment Related</option>
+                  <option value="service-question">Service Question</option>
+                  <option value="feedback">Feedback</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </div>
+
+            {/* Message */}
+            <div className="mb-6">
+              <label className="block font-sans font-medium text-navy mb-2">
+                Message *
+              </label>
+              <textarea
+                name="message"
+                value={formData.message}
+                onChange={handleChange}
+                required
+                rows="5"
+                className="w-full px-4 py-3 border border-light-gray rounded-input focus:outline-none focus:ring-2 focus:ring-teal/50 resize-none"
+                placeholder="Please tell us how we can help you..."
+              ></textarea>
+            </div>
+
+            {/* Error Message */}
+            {error && (
+              <div className="bg-red-50 border border-red-200 rounded-card p-4 flex gap-3 mb-6">
+                <AlertCircle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-semibold text-red-700">Error</p>
+                  <p className="text-red-600 text-sm">{error}</p>
+                </div>
+              </div>
+            )}
+
+            {/* Submit Button */}
+            <button
+              type="submit"
+              disabled={loading}
+              className={`w-full px-8 py-4 rounded-btn font-semibold text-lg transition-all hover:shadow-lg ${
+                loading
+                  ? 'bg-amber/50 text-white cursor-not-allowed'
+                  : 'bg-amber text-white hover:bg-yellow-600'
+              }`}
+            >
+              {loading ? 'Sending...' : 'Send Message'}
+            </button>
+          </form>
+        )}
       </div>
     </section>
   );
