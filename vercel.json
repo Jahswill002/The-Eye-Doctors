@@ -3,7 +3,6 @@
   "public": false,
   "experimentalServices": {
     "frontend": {
-      "name": "The Eye Doctors - Frontend",
       "buildCommand": "npm run build",
       "installCommand": "npm install",
       "outputDirectory": "frontend/dist",
@@ -11,7 +10,6 @@
       "entrypoint": "frontend"
     },
     "backend": {
-      "name": "The Eye Doctors - Backend",
       "buildCommand": "npm run build",
       "installCommand": "npm install",
       "entrypoint": "backend",
