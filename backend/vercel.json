@@ -1,7 +1,4 @@
 {
   "buildCommand": "npm install",
-  "installCommand": "npm install",
-  "engines": {
-    "node": "24.x"
-  }
+  "installCommand": "npm install"
 }
