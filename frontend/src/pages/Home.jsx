@@ -365,7 +365,7 @@ function WhatsAppBanner() {
           Chat with us directly on WhatsApp for quick responses
         </p>
         <a 
-          href="https://wa.me/234XXXXXXXXXX"
+          href="https://wa.me/message/SWRMMLY25YUNG1"
           className="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-btn font-semibold text-lg hover:bg-green-600 transition-all hover:shadow-lg hover:scale-105"
         >
           <MessageCircle size={24} />
