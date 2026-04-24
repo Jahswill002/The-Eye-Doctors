@@ -58,7 +58,7 @@ function HeroSection() {
             </Link>
             
             <a 
-              href="https://wa.me/234XXXXXXXXXX"
+              href="https://wa.me/2349028113071"
               className="border-2 border-white text-white px-10 py-4 rounded-btn font-semibold text-lg hover:bg-white/10 transition-all flex items-center justify-center gap-2"
             >
               <MessageCircle size={20} />
@@ -365,7 +365,7 @@ function WhatsAppBanner() {
           Chat with us directly on WhatsApp for quick responses
         </p>
         <a 
-          href="https://wa.me/2348086944210"
+          href="https://wa.me/2349028113071"
           className="inline-flex items-center gap-3 bg-green-500 text-white px-8 py-4 rounded-btn font-semibold text-lg hover:bg-green-600 transition-all hover:shadow-lg hover:scale-105"
         >
           <MessageCircle size={24} />

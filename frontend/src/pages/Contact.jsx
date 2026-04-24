@@ -384,7 +384,7 @@ function ContactInfo() {
             </div>
             <h3 className="font-serif text-xl text-navy mb-2">WhatsApp</h3>
             <p className="text-body-text mb-4">Chat with us directly</p>
-            <a href="https://wa.me/2348086944210" className="text-green-500 hover:text-green-600 font-semibold">
+            <a href="https://wa.me/2349028113071" className="text-green-500 hover:text-green-600 font-semibold">
               Start Chat
             </a>
           </div>
