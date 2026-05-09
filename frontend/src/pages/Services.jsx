@@ -47,28 +47,28 @@ function MainServices() {
       title: 'Comprehensive Eye Exams',
       description: 'Complete vision assessment including eye pressure testing, visual field analysis, and retinal examination. Early detection of eye diseases.',
       features: ['Vision screening', 'Eye pressure testing', 'Retinal examination', 'Optical coherence tomography (OCT)'],
-      image: 'https://images.unsplash.com/photo-1576092762791-dd9e2220cad1?w=600&h=600&fit=crop',
+      image: 'https://images.pexels.com/photos/6749757/pexels-photo-6749757.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       icon: Award,
       title: 'Cataract Surgery',
       description: 'Advanced surgical procedures using state-of-the-art technology. Minimally invasive approach with rapid recovery.',
       features: ['Phacoemulsification', 'Premium IOL options', 'Astigmatism correction', 'Specialized anesthesia'],
-      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&h=600&fit=crop',
+      image: 'https://images.pexels.com/photos/7584491/pexels-photo-7584491.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       icon: Zap,
       title: 'Glaucoma Management',
       description: 'Early detection and comprehensive treatment to prevent vision loss. Medical and surgical options available.',
       features: ['Early detection screening', 'Medical therapy', 'Laser treatment', 'Surgical management'],
-      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=600&fit=crop',
+      image: 'https://images.pexels.com/photos/3825586/pexels-photo-3825586.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
     {
       icon: Users,
       title: 'Pediatric Eye Care',
       description: 'Specialized eye care for children from infancy through adolescence. Comfortable, child-friendly environment.',
       features: ['Vision development screening', 'Amblyopia treatment', 'Glasses & contacts fitting', 'Strabismus management'],
-      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=600&fit=crop',
+      image: 'https://images.pexels.com/photos/7653112/pexels-photo-7653112.jpeg?auto=compress&cs=tinysrgb&w=600',
     },
   ];
 
