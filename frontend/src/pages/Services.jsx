@@ -47,24 +47,28 @@ function MainServices() {
       title: 'Comprehensive Eye Exams',
       description: 'Complete vision assessment including eye pressure testing, visual field analysis, and retinal examination. Early detection of eye diseases.',
       features: ['Vision screening', 'Eye pressure testing', 'Retinal examination', 'Optical coherence tomography (OCT)'],
+      image: 'https://images.unsplash.com/photo-1576092762791-dd9e2220cad1?w=600&h=600&fit=crop',
     },
     {
       icon: Award,
       title: 'Cataract Surgery',
       description: 'Advanced surgical procedures using state-of-the-art technology. Minimally invasive approach with rapid recovery.',
       features: ['Phacoemulsification', 'Premium IOL options', 'Astigmatism correction', 'Specialized anesthesia'],
+      image: 'https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&h=600&fit=crop',
     },
     {
       icon: Zap,
       title: 'Glaucoma Management',
       description: 'Early detection and comprehensive treatment to prevent vision loss. Medical and surgical options available.',
       features: ['Early detection screening', 'Medical therapy', 'Laser treatment', 'Surgical management'],
+      image: 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=600&h=600&fit=crop',
     },
     {
       icon: Users,
       title: 'Pediatric Eye Care',
       description: 'Specialized eye care for children from infancy through adolescence. Comfortable, child-friendly environment.',
       features: ['Vision development screening', 'Amblyopia treatment', 'Glasses & contacts fitting', 'Strabismus management'],
+      image: 'https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&h=600&fit=crop',
     },
   ];
 
@@ -107,7 +111,7 @@ function MainServices() {
                 
                 <div className={`h-80 bg-gradient-to-br from-teal/20 to-amber/10 rounded-card overflow-hidden ${idx % 2 === 1 ? 'md:order-1' : ''}`}
                   style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=600&fit=crop)',
+                    backgroundImage: `url(${service.image})`,
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
