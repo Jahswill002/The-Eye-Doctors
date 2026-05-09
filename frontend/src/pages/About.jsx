@@ -23,7 +23,7 @@ export default function About() {
 function AboutHero() {
   return (
     <section className="relative w-full h-96 md:h-[500px] flex items-center justify-start bg-gradient-to-r from-navy/90 to-navy/50 bg-cover bg-center mt-20"
-      style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1576091160550-112173e7d00b?w=1200&h=800&fit=crop)' }}>
+      style={{ backgroundImage: 'url(/images/about_team.png)' }}>
       
       <div className="absolute inset-0 bg-gradient-to-r from-navy/85 from-40% to-navy/30 to-100%"></div>
       
@@ -48,7 +48,7 @@ function OurStory() {
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
           }`}
             style={{
-              backgroundImage: 'url(https://images.unsplash.com/photo-1631217314830-f6f24f3e0eff?w=600&h=600&fit=crop)',
+              backgroundImage: 'url(/images/clinic_reception.png)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}

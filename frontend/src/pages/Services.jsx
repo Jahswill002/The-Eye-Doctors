@@ -24,7 +24,7 @@ export default function Services() {
 function ServicesHero() {
   return (
     <section className="relative w-full h-96 md:h-[500px] flex items-center justify-start bg-gradient-to-r from-navy/90 to-navy/50 bg-cover bg-center mt-20"
-      style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1576091160550-112173e7d00b?w=1200&h=800&fit=crop)' }}>
+      style={{ backgroundImage: 'url(/images/service_exam.png)' }}>
       
       <div className="absolute inset-0 bg-gradient-to-r from-navy/85 from-40% to-navy/30 to-100%"></div>
       
@@ -107,7 +107,7 @@ function MainServices() {
                 
                 <div className={`h-80 bg-gradient-to-br from-teal/20 to-amber/10 rounded-card overflow-hidden ${idx % 2 === 1 ? 'md:order-1' : ''}`}
                   style={{
-                    backgroundImage: 'url(https://images.unsplash.com/photo-1631217314830-f6f24f3e0eff?w=600&h=600&fit=crop)',
+                    backgroundImage: 'url(/images/why_choose_us.png)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}
