@@ -291,14 +291,21 @@ function Testimonials() {
           isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'
         }`}>
           {testimonials.map((testimonial, idx) => (
-            <div key={idx} className="bg-surface-off-white rounded-card p-8 border border-light-gray">
+            <div key={idx} className="bg-surface-off-white rounded-card p-8 border border-light-gray flex flex-col h-full">
               <div className="flex gap-1 mb-4">
                 {[...Array(testimonial.rating)].map((_, i) => (
                   <span key={i} className="text-amber">★</span>
                 ))}
               </div>
-              <p className="text-body-text italic mb-6">"{testimonial.quote}"</p>
-              <p className="font-semibold text-navy">{testimonial.name}</p>
+              <p className="text-body-text italic mb-6 flex-grow">"{testimonial.quote}"</p>
+              <div className="flex items-center gap-4 mt-auto">
+                <img 
+                  src={`https://ui-avatars.com/api/?name=${testimonial.name.replace(' ', '+')}&background=1D6A72&color=fff&rounded=true`} 
+                  alt={testimonial.name}
+                  className="w-12 h-12 rounded-full shadow-sm"
+                />
+                <p className="font-semibold text-navy">{testimonial.name}</p>
+              </div>
             </div>
           ))}
         </div>

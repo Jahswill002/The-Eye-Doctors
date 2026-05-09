@@ -107,7 +107,7 @@ function MainServices() {
                 
                 <div className={`h-80 bg-gradient-to-br from-teal/20 to-amber/10 rounded-card overflow-hidden ${idx % 2 === 1 ? 'md:order-1' : ''}`}
                   style={{
-                    backgroundImage: 'url(/images/why_choose_us.png)',
+                    backgroundImage: 'url(https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&h=600&fit=crop)',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                   }}

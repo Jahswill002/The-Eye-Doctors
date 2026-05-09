@@ -353,7 +353,7 @@ export default function Booking() {
 function BookingHero() {
   return (
     <section className="relative w-full h-80 md:h-96 flex items-center justify-start bg-gradient-to-r from-navy/90 to-navy/50 bg-cover bg-center mt-20"
-      style={{ backgroundImage: 'url(/images/clinic_reception.png)' }}>
+      style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1538136113888-85474abfbd8c?w=1200&h=800&fit=crop)' }}>
       
       <div className="absolute inset-0 bg-gradient-to-r from-navy/85 from-40% to-navy/30 to-100%"></div>
       

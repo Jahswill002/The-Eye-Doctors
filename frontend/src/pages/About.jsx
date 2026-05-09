@@ -48,7 +48,7 @@ function OurStory() {
             isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'
           }`}
             style={{
-              backgroundImage: 'url(/images/clinic_reception.png)',
+              backgroundImage: 'url(https://images.unsplash.com/photo-1551076805-e1869033e561?w=600&h=600&fit=crop)',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
             }}

@@ -16,8 +16,8 @@ module.exports = {
         'subtle-text': '#6B7280',
       },
       fontFamily: {
-        serif: ['DM Serif Display', 'serif'],
-        sans: ['DM Sans', 'sans-serif'],
+        serif: ['Inter', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'],
       },
       spacing: {
         '8px': '0.5rem',
