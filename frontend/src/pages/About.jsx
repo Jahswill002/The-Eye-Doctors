@@ -158,19 +158,19 @@ function OurTeam() {
       name: 'Dr. Kolade Adeyemi',
       title: 'Chief Ophthalmologist',
       bio: 'Over 20 years in eye care. Specializes in cataract and refractive surgery.',
-      image: 'https://images.unsplash.com/photo-1612349317150-e539c59dc506?w=400&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=400&h=400&fit=crop',
     },
     {
       name: 'Dr. Chiamaka Okonkwo',
       title: 'Pediatric Ophthalmologist',
       bio: 'Specialist in children\'s eye health and development. Compassionate care expert.',
-      image: 'https://images.unsplash.com/photo-1594824436951-7f12bc81e355?w=400&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1614608682850-e0d6ed316d47?w=400&h=400&fit=crop',
     },
     {
       name: 'Dr. Hassan Al-Rashid',
       title: 'Glaucoma Specialist',
       bio: 'Expert in early detection and management. Dedicated to vision preservation.',
-      image: 'https://images.unsplash.com/photo-1537368910025-7028ba1a964a?w=400&h=400&fit=crop',
+      image: 'https://images.unsplash.com/photo-1550831107-1553da8c8464?w=400&h=400&fit=crop',
     },
     {
       name: 'Dr. Folake Johnson',
