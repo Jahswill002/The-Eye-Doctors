@@ -158,21 +158,25 @@ function OurTeam() {
       name: 'Dr. Kolade Adeyemi',
       title: 'Chief Ophthalmologist',
       bio: 'Over 20 years in eye care. Specializes in cataract and refractive surgery.',
+      image: 'https://images.unsplash.com/photo-1612349317150-e539c59dc506?w=400&h=400&fit=crop',
     },
     {
       name: 'Dr. Chiamaka Okonkwo',
       title: 'Pediatric Ophthalmologist',
       bio: 'Specialist in children\'s eye health and development. Compassionate care expert.',
+      image: 'https://images.unsplash.com/photo-1594824436951-7f12bc81e355?w=400&h=400&fit=crop',
     },
     {
       name: 'Dr. Hassan Al-Rashid',
       title: 'Glaucoma Specialist',
       bio: 'Expert in early detection and management. Dedicated to vision preservation.',
+      image: 'https://images.unsplash.com/photo-1537368910025-7028ba1a964a?w=400&h=400&fit=crop',
     },
     {
       name: 'Dr. Folake Johnson',
       title: 'General Ophthalmologist',
       bio: 'Comprehensive eye exams and general eye health. Patient education advocate.',
+      image: 'https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=400&h=400&fit=crop',
     },
   ];
 
@@ -193,7 +197,7 @@ function OurTeam() {
             <div key={idx} className="bg-surface-off-white rounded-card overflow-hidden border border-light-gray hover:shadow-lg transition-shadow">
               <div className="h-48 bg-gradient-to-br from-teal/20 to-amber/10"
                 style={{
-                  backgroundImage: 'url(https://images.unsplash.com/photo-1612349317150-e539c59dc506?w=400&h=400&fit=crop)',
+                  backgroundImage: `url(${doctor.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                 }}
